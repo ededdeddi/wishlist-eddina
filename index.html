@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist Onomastico di Edda</title>
+  <meta name="description" content="Wishlist per l'onomastico di Edda: beauty, profumi, capelli, giochi Nintendo ed esperienze." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fff9f6;
+      --bg-2: #fff1eb;
+      --surface: rgba(255,255,255,0.72);
+      --surface-strong: rgba(255,255,255,0.92);
+      --text: #4e3a37;
+      --muted: #7c6661;
+      --line: rgba(170, 123, 123, 0.18);
+      --accent: #db9ea8;
+      --accent-2: #f4d8cb;
+      --accent-3: #f7ece3;
+      --gold: #c9a45c;
+      --shadow: 0 20px 55px rgba(95, 67, 59, 0.13);
+      --shadow-soft: 0 10px 30px rgba(95, 67, 59, 0.08);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(255, 209, 220, 0.68), transparent 25%),
+        radial-gradient(circle at 92% 16%, rgba(255, 234, 214, 0.92), transparent 22%),
+        radial-gradient(circle at 86% 80%, rgba(245, 208, 197, 0.72), transparent 26%),
+        linear-gradient(145deg, var(--bg), var(--bg-2));
+      min-height: 100vh;
+      line-height: 1.55;
+      padding: 22px;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      filter: blur(45px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: .45;
+    }
+
+    body::before {
+      background: rgba(255, 214, 214, 0.9);
+      top: -70px;
+      left: -70px;
+    }
+
+    body::after {
+      background: rgba(247, 218, 199, 0.85);
+      bottom: -90px;
+      right: -70px;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 38px;
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,247,244,0.92));
+      border: 1px solid rgba(255,255,255,0.65);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: '✦';
+      position: absolute;
+      color: rgba(201, 164, 92, 0.28);
+      font-size: 90px;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+    }
+
+    .hero::before { top: 18px; right: 28px; transform: rotate(12deg); }
+    .hero::after { bottom: 16px; left: 28px; transform: rotate(-14deg); }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      color: var(--muted);
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(219, 158, 168, 0.18);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .monogram {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,240,236,0.92), rgba(255,255,255,0.95));
+      border: 1px solid rgba(219,158,168,0.18);
+      box-shadow: var(--shadow-soft);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #8b6163;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(270px, .85fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-copy h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 7vw, 5.4rem);
+      line-height: 0.92;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      color: #3f2e2b;
+    }
+
+    .hero-copy p.lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 670px;
+      margin-bottom: 18px;
+    }
+
+    .intro {
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(219,158,168,0.14);
+      padding: 18px 18px 18px 20px;
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+      color: #6f5952;
+      max-width: 700px;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .mini-panel,
+    .wish-count {
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .mini-panel h3,
+    .wish-count h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      color: #473330;
+    }
+
+    .mini-panel p,
+    .wish-count p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .stat {
+      background: linear-gradient(135deg, #fff7f2, #fff);
+      padding: 12px;
+      border-radius: 18px;
+      text-align: center;
+      border: 1px solid rgba(219,158,168,0.14);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      color: #4f3935;
+      margin-bottom: 2px;
+    }
+
+    .stat span {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .chip-row a {
+      text-decoration: none;
+      color: #5a433d;
+      font-weight: 600;
+      font-size: 0.92rem;
+      background: rgba(255,255,255,0.9);
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(219,158,168,0.18);
+      box-shadow: 0 8px 18px rgba(95, 67, 59, 0.08);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .chip-row a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(95, 67, 59, 0.12);
+      border-color: rgba(201,164,92,0.38);
+    }
+
+    .section-title {
+      margin: 38px 0 18px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .section-title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: #42302d;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .featured-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255,255,255,0.92), rgba(255,244,239,0.94));
+      border: 1px solid rgba(219,158,168,0.16);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      right: -40px;
+      top: -36px;
+      background: radial-gradient(circle, rgba(247,216,203,0.75), transparent 70%);
+    }
+
+    .featured-card .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #fff;
+      color: #9a6d74;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      border: 1px solid rgba(219,158,168,0.16);
+    }
+
+    .featured-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      line-height: 1.05;
+      margin-bottom: 10px;
+      color: #42302d;
+      position: relative;
+    }
+
+    .featured-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #5f4540;
+      font-weight: 700;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(219,158,168,0.18);
+      border-radius: 999px;
+      padding: 10px 14px;
+      box-shadow: 0 8px 16px rgba(95, 67, 59, 0.06);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+      min-height: 100%;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(95, 67, 59, 0.14);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff3ee, #fffdfa);
+      border: 1px solid rgba(219,158,168,0.18);
+      font-size: 1.7rem;
+      box-shadow: 0 8px 20px rgba(95, 67, 59, 0.08);
+      flex-shrink: 0;
+    }
+
+    .card-title h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      line-height: 1.05;
+      color: #45312e;
+    }
+
+    .card-title p {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-top: 4px;
+    }
+
+    .wish-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .wish-list li {
+      background: rgba(255,255,255,0.64);
+      border: 1px solid rgba(219,158,168,0.12);
+      border-radius: 16px;
+      padding: 11px 13px;
+      color: #654f49;
+      line-height: 1.45;
+    }
+
+    .wish-list li::before {
+      content: '♡';
+      color: #cf8f99;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .wish-list a {
+      color: #5a3f3a;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(201,164,92,0.35);
+    }
+
+    .wish-list a:hover { color: #9b6b6b; }
+
+    .levels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .level {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(255,244,239,.92));
+      border: 1px solid rgba(219,158,168,0.16);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .level:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(95, 67, 59, 0.14);
+    }
+
+    .level::before {
+      content: '';
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      right: -42px;
+      top: -42px;
+      background: radial-gradient(circle, rgba(247,216,203,0.72), transparent 70%);
+    }
+
+    .level .mini {
+      position: relative;
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: #a3747d;
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(219,158,168,0.16);
+    }
+
+    .level h3 {
+      position: relative;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.85rem;
+      line-height: 1.05;
+      color: #44312e;
+      margin-bottom: 10px;
+    }
+
+    .level p {
+      position: relative;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .level ul {
+      position: relative;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .level li {
+      color: #654f49;
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(219,158,168,0.12);
+      border-radius: 14px;
+      padding: 9px 11px;
+      font-size: .93rem;
+    }
+
+    .level li::before {
+      content: '✦';
+      color: rgba(201,164,92,0.8);
+      margin-right: 7px;
+      font-size: .8rem;
+    }
+
+    .note {
+      margin-top: 24px;
+      background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(255,248,244,.95));
+      border: 1px dashed rgba(201,164,92,0.55);
+      border-radius: 28px;
+      padding: 26px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      color: #6a544d;
+    }
+
+    .note strong {
+      color: #4a3733;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 12px 8px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .featured-grid,
+      .cards,
+      .levels {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 14px; }
+      .hero { padding: 22px; border-radius: 28px; }
+      .hero-copy h1 { font-size: clamp(2.6rem, 14vw, 4rem); }
+      .featured-grid,
+      .cards,
+      .levels,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      .chip-row a { width: 100%; text-align: center; }
+      .monogram { width: 58px; height: 58px; font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-top">
+        <span class="label">✨ Onomastico edition</span>
+        <div class="monogram">E</div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>La wishlist<br>di Eddina</h1>
+          <p class="lead">Piccole coccole, profumi, giochi ed esperienze che mi farebbero sorridere nel mio giorno speciale.</p>
+          <div class="intro">
+            Quest’anno ho raccolto qualche idea carina per chi vuole farmi un pensierino ma non sa da dove partire, non perché serva per forza un regalo, ma perché mi piace l’idea di raccogliere cose, esperienze, pensieri, insomma tutto ciò che dice “ho pensato a te” 💌 e che mi farebbero sorridere. Non serve nulla di grande: per me già la tua presenza vale tantissimo. 🤍
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="wish-count">
+            <h3>Piccola guida</h3>
+            <p>Qui trovi una lista di idee divise per categorie, così è tutto più semplice da sfogliare e scegliere.</p>
+            <div class="stats">
+              <div class="stat">
+                <strong>7</strong>
+                <span>categorie</span>
+              </div>
+              <div class="stat">
+                <strong>+20</strong>
+                <span>idee</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                <span>con amore</span>
+              </div>
+            </div>
+          </div>
+          <div class="mini-panel">
+            <h3>Vibes della lista</h3>
+            <p>Delicata, femminile, dolce e un po’ giocosa — proprio come me 🩷.</p>
+          </div>
+        </aside>
+      </div>
+
+      <nav class="chip-row" aria-label="Categorie wishlist">
+        <a href="#preferiti">Preferiti</a>
+        <a href="#beauty">Coccole beauty</a>
+        <a href="#capelli-solari">Capelli & solari</a>
+        <a href="#profumi">Profumi</a>
+        <a href="#giochi">Giochi Nintendo</a>
+        <a href="#esperienze">Esperienza beauty</a>
+        <a href="#simbolici">Pensieri dolci</a>
+      </nav>
+    </section>
+
+    <section id="preferiti">
+      <div class="section-title">
+        <h2>Preferiti del momento</h2>
+        <p>Tre idee in evidenza, nel caso qualcuno voglia andare subito sul sicuro.</p>
+      </div>
+
+      <div class="featured-grid">
+        <article class="featured-card">
+          <span class="eyebrow">Haircare pick</span>
+          <h3>The Ordinary – siero per capelli multipeptidico densificante</h3>
+          <a class="cta" href="https://www.asos.com/it/the-ordinary/the-ordinary-siero-per-capelli-multipeptidico-densificante-60ml/prd/206212950?affid=26526&freelisting=yes" target="_blank" rel="noopener noreferrer">Apri il link ↗</a>
+        </article>
+
+        <article class="featured-card">
+          <span class="eyebrow">Profumo pick</span>
+          <h3>Bali – Varriale Profumi</h3>
+          <a class="cta" href="https://varrialeprofumi.it/products/bali-varriale" target="_blank" rel="noopener noreferrer">Scopri il profumo ↗</a>
+        </article>
+
+        <article class="featured-card">
+          <span class="eyebrow">Game pick</span>
+          <h3>Super Mario Party Jamboree</h3>
+          <a class="cta" href="https://amzn.eu/d/07q5f14N" target="_blank" rel="noopener noreferrer">Vedi il gioco ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Tutti i miei desideri</h2>
+        <p>Una raccolta ordinata di pensierini, prodotti e idee per chi vuole scegliere con calma.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card" id="beauty">
+          <div class="card-head">
+            <div class="icon">💄</div>
+            <div class="card-title">
+              <h3>Coccole beauty</h3>
+              <p>Skincare, make-up e piccole coccole profumate</p>
+            </div>
+          </div>
+          <ul class="wish-list">
+            <li><a href="https://amzn.eu/d/0fSCRaht" target="_blank" rel="noopener noreferrer">Medicube Body Peel Shot</a></li>
+            <li>Qualsiasi coccola beauty profumata</li>
+          </ul>
+        </article>
+
+        <article class="card" id="capelli-solari">
+          <div class="card-head">
+            <div class="icon">☀️</div>
+            <div class="card-title">
+              <h3>Capelli & solari</h3>
+              <p>Prodotti mirati per prendermi cura di me</p>
+            </div>
+          </div>
+          <ul class="wish-list">
+            <li><a href="https://www.asos.com/it/the-ordinary/the-ordinary-siero-per-capelli-multipeptidico-densificante-60ml/prd/206212950?affid=26526&freelisting=yes" target="_blank" rel="noopener noreferrer">The Ordinary – siero per capelli multipeptidico densificante</a></li>
+            <li><a href="https://www.notino.it/kerastase/nutritive-siero-notte-riginerante-effetto-rivitalizzante-per-capelli/" target="_blank" rel="noopener noreferrer">Kérastase Nutritive 8H Magic Night Serum</a></li>
+            <li><a href="https://www.sephora.it/p/no.7-bonding---olio-riparatore-per-capelli-490932.html?utm_source=google&utm_medium=cpc&utm_campaign=SephoraEUR_SR_ITA_Coads-Olapl-Hair-Alwayson_UNI_HAI_OGOING_EC_PEMA_GPMA_CRD_ITA_EUR_NAPP_&utm_term=&gad_source=1&gad_campaignid=22422647015&gbraid=0AAAAACodpsZbuyB4j9wz5w52TNAUP1ss-&gclid=CjwKCAjwuuPRBhAnEiwA2Ji8etaCu0Zd6L8UcSbZ4PrGQACz8Cj5p2lNL6fvKhwxHKEGo2DkFR3FihoCil0QAvD_BwE" target="_blank" rel="noopener noreferrer">Olaplex No.7 Bonding Oil – olio riparatore per capelli</a></li>
+            <li>Kit creme solari</li>
+            <li>Mini size di solari per capelli</li>
+          </ul>
+        </article>
+
+        <article class="card" id="profumi">
+          <div class="card-head">
+            <div class="icon">🌺</div>
+            <div class="card-title">
+              <h3>Profumi dolci</h3>
+              <p>Fragranze e profumi golosi che mi piacciono</p>
+            </div>
+          </div>
+          <ul class="wish-list">
+            <li><a href="https://varrialeprofumi.it/products/bali-varriale" target="_blank" rel="noopener noreferrer">Bali – Varriale Profumi</a></li>
+            <li><a href="https://varrialeprofumi.it/products/pistacchio-e-caramello" target="_blank" rel="noopener noreferrer">Pistacchio e Caramello – Varriale Profumi</a></li>
+            <li>Profumo delicato o mini-size elegante</li>
+          </ul>
+        </article>
+
+        <article class="card" id="giochi">
+          <div class="card-head">
+            <div class="icon">🎮</div>
+            <div class="card-title">
+              <h3>Giochi Nintendo</h3>
+              <p>Per un regalo un po’ diverso e super divertente</p>
+            </div>
+          </div>
+          <ul class="wish-list">
+            <li><a href="https://amzn.eu/d/07q5f14N" target="_blank" rel="noopener noreferrer">Super Mario Party Jamboree</a></li>
+            <li><a href="https://amzn.eu/d/0aBPRC9W" target="_blank" rel="noopener noreferrer">Super Mario 3D World + Bowser’s Fury</a></li>
+            <li><a href="https://store.nintendo.com/it-it/laytons-mystery-journey-katrielle-e-il-complotto-dei-milionari-edizione-deluxe-000000000010003911?&srsltid=AfmBOopKeVaNhzMLDC5CVwb9r7UzcEZp1zPkvUfeKdx9IN90VodVICnc" target="_blank" rel="noopener noreferrer">Layton’s Mystery Journey: Katrielle e il Complotto dei Milionari – Edizione Deluxe</a></li>
+          </ul>
+        </article>
+
+        <article class="card" id="esperienze">
+          <div class="card-head">
+            <div class="icon">💇‍♀️</div>
+            <div class="card-title">
+              <h3>Esperienza beauty</h3>
+              <p>Una coccola pratica e super gradita</p>
+            </div>
+          </div>
+          <ul class="wish-list">
+            <li>Parrucchiere o piega regalo</li>
+          </ul>
+        </article>
+
+        <article class="card" id="simbolici">
+          <div class="card-head">
+            <div class="icon">💌</div>
+            <div class="card-title">
+              <h3>Pensieri dolci</h3>
+              <p>Anche i gesti semplici per me valgono tantissimo</p>
+            </div>
+          </div>
+          <ul class="wish-list">
+            <li>Qualcosa che dica “ho pensato a te”</li>
+          </ul>
+        </article>
+
+        
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Tre modi per sceglierla</h2>
+        <p>Una mini guida dolce per scegliere il pensiero giusto: dal gesto semplice alla coccola beauty più speciale.</p>
+      </div>
+
+      <div class="levels">
+        <article class="level">
+          <span class="mini">01 · Pensierino dolce</span>
+          <h3>Per dire “ti ho pensata”</h3>
+          <p>La scelta perfetta se vuoi farmi sorridere con qualcosa di semplice ma tenero.</p>
+          <ul>
+            <li>Un biglietto scritto a mano</li>
+            <li>Un fiore, un dolcetto o una mini coccola beauty</li>
+            <li>Qualcosa di piccolo, ma scelto con affetto</li>
+          </ul>
+        </article>
+
+        <article class="level">
+          <span class="mini">02 · Regalo coccola</span>
+          <h3>Per andare sul sicuro</h3>
+          <p>Ideale se vuoi scegliere qualcosa che desidero davvero e che userò con piacere.</p>
+          <ul>
+            <li>Sieri capelli, skincare o prodotti beauty</li>
+            <li>Profumi dolci e prodotti Varriale</li>
+            <li>Giochi Nintendo o kit solari</li>
+          </ul>
+        </article>
+
+        <article class="level">
+          <span class="mini">03 · Coccola beauty</span>
+          <h3>Per regalarmi un momento tutto mio</h3>
+          <p>Perfetto se vuoi scegliere qualcosa di utile, curato e facile da organizzare.</p>
+          <ul>
+            <li>Una piega dal parrucchiere</li>
+            <li>Un buono per capelli o trattamento beauty</li>
+            <li>Una coccola semplice, ma super apprezzata</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="note">
+      <strong>La cosa più bella resta il pensiero 🤍</strong>
+      Questa wishlist è solo una raccolta di idee. Per me il regalo più importante resta sempre l’affetto con cui viene scelto.
+    </section>
+
+    <footer>
+      Fatto con amore per l’onomastico di Edda 🩷
+    </footer>
+  </main>
+</body>
+</html>
